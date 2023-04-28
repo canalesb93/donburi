@@ -18,6 +18,17 @@ func (e EntityCounts) String() string {
 	return fmt.Sprintf("Archetype %v has %d entities", e.Archetype.Layout(), e.Count)
 }
 
+func EntityCountsString(w donburi.World) string {
+	var out bytes.Buffer
+	out.WriteString("Entity Counts:\n")
+	for _, c := range GetEntityCounts(w) {
+		out.WriteString(c.String())
+		out.WriteString("\n")
+	}
+	out.WriteString("\n")
+	return out.String()
+}
+
 func PrintEntityCounts(w donburi.World) {
 	var out bytes.Buffer
 	out.WriteString("Entity Counts:\n")

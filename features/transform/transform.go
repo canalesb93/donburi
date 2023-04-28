@@ -200,3 +200,7 @@ var Transform = donburi.NewComponentType[TransformData](defaultValue)
 func GetTransform(entry *donburi.Entry) *TransformData {
 	return donburi.Get[TransformData](entry, Transform)
 }
+
+func GetPosition(entry *donburi.Entry) *dmath.Vec2 {
+	return &GetTransform(entry).LocalPosition
+}
