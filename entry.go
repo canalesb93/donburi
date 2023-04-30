@@ -141,6 +141,11 @@ func (e *Entry) HasComponent(componentType component.IComponentType) bool {
 	return e.Archetype().Layout().HasComponent(componentType)
 }
 
+// HasTag returns true if the entity has the given tag type.
+func (e *Entry) HasTag(componentType component.IComponentType) bool {
+	return e.HasComponent(componentType)
+}
+
 func (e *Entry) String() string {
 	var out bytes.Buffer
 	out.WriteString("Entry: {")
